@@ -1,0 +1,12 @@
+.editButton {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.editButton:hover {
+  color: white;
+}
+
+.deleteButton:hover {
+  color: #F44336;
+} 

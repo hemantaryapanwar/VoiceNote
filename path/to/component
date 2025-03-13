@@ -1,0 +1,5 @@
+{
+  cursor: 'pointer',
+  transition: 'color 0.2s',
+  '&:hover': { color: 'white' }
+} 

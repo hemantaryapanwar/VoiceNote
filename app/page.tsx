@@ -8,6 +8,7 @@ import { saveNotes, getNotes } from './utils/storage';
 import { FaMicrophone, FaPlay, FaEdit, FaTrash, FaFileAlt, FaFolder, FaUser, FaBell } from 'react-icons/fa';
 import Link from 'next/link';
 import { useTheme } from './context/ThemeContext';
+import styles from './styles/EditButton.module.css';
 
 export default function Home() {
   const { darkMode } = useTheme();
@@ -707,14 +708,7 @@ export default function Home() {
                     <div style={{ display: 'flex', gap: '0.75rem' }}>
                       <button 
                         onClick={() => handleEditNote(note)}
-                        style={{ 
-                          backgroundColor: 'transparent', 
-                          color: '#AAAAAA', 
-                          border: 'none',
-                          cursor: 'pointer',
-                          transition: 'color 0.2s',
-                          ':hover': { color: 'white' }
-                        }}
+                        className={styles.actionButton + ' ' + styles.editButton}
                         title="Edit Note"
                       >
                         <FaEdit />
@@ -725,14 +719,7 @@ export default function Home() {
                             handleDeleteNote(note.id);
                           }
                         }}
-                        style={{ 
-                          backgroundColor: 'transparent', 
-                          color: '#AAAAAA', 
-                          border: 'none',
-                          cursor: 'pointer',
-                          transition: 'color 0.2s',
-                          ':hover': { color: '#F44336' }
-                        }}
+                        className={styles.actionButton + ' ' + styles.deleteButton}
                         title="Delete Note"
                       >
                         <FaTrash />
