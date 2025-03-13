@@ -1,0 +1,10 @@
+.imageContainer {
+  width: 100%;
+  position: relative;
+}
+
+.responsiveImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+} 

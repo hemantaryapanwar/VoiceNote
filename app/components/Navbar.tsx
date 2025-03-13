@@ -1,33 +1,31 @@
 'use client';
 import { useState } from 'react';
-import styles from './styles/Navbar.module.css';
+import styles from '../styles/Navbar.module.css';
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [isOpen, setIsOpen] = useState(false);
+  
   return (
     <nav className={styles.navbar}>
-      <div className={styles.navContainer}>
-        <div className={styles.logo}>
-          Your Logo
-        </div>
-
-        {/* Hamburger menu for mobile */}
+      <div className={styles.container}>
+        <div className={styles.logo}>VoiceNote</div>
+        
         <button 
-          className={styles.menuButton}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className={styles.menuButton} 
+          onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <div className={`${styles.hamburger} ${isOpen ? styles.active : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </button>
-
-        {/* Nav links */}
-        <div className={`${styles.navLinks} ${isMenuOpen ? styles.active : ''}`}>
+        
+        <div className={`${styles.menu} ${isOpen ? styles.active : ''}`}>
           <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
+          <a href="/notes">Notes</a>
+          <a href="/profile">Profile</a>
         </div>
       </div>
     </nav>

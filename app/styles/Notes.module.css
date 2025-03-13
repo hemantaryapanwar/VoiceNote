@@ -1,0 +1,50 @@
+.noteCard {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.noteCard:hover {
+  transform: translateY(-5px);
+}
+
+.noteTitle {
+  font-size: var(--font-size-lg);
+  margin-bottom: 0.5rem;
+}
+
+.noteContent {
+  font-size: var(--font-size-md);
+}
+
+.noteActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.actionButton {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.actionButton:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+@media (max-width: 640px) {
+  .noteCard {
+    padding: 1rem;
+  }
+  
+  .noteActions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+} 

@@ -1,0 +1,22 @@
+/* Mobile First Approach */
+/* Base styles for mobile */
+
+/* Small tablets and large phones */
+@media (min-width: 640px) {
+  /* Your styles here */
+}
+
+/* Tablets and small laptops */
+@media (min-width: 768px) {
+  /* Your styles here */
+}
+
+/* Desktops and large tablets */
+@media (min-width: 1024px) {
+  /* Your styles here */
+}
+
+/* Large desktops */
+@media (min-width: 1280px) {
+  /* Your styles here */
+} 
