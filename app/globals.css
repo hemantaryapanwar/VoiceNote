@@ -1,26 +1,76 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --primary: #F44336; /* Red */
+  --primary-dark: #D32F2F;
+  --secondary: #121212; /* Almost Black */
+  --secondary-light: #1E1E1E;
+  --text-light: #F5F5F5;
+  --text-dark: #121212;
+  --accent: #F44336; /* Red */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--secondary);
+  color: var(--text-light);
+}
+
+/* Custom classes without using @apply */
+.btn-primary {
+  background-color: #F44336;
+  color: #000000;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+.btn-primary:hover {
+  background-color: #D32F2F;
+}
+
+.btn-secondary {
+  background-color: #424242;
+  color: #F44336;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #F44336;
+}
+.btn-secondary:hover {
+  background-color: #616161;
+}
+
+.card {
+  background-color: #424242;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  border-left: 4px solid #F44336;
+}
+
+.quote-card {
+  font-style: italic;
+  color: #E0E0E0;
+  border-left: 4px solid #F44336;
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
 }
