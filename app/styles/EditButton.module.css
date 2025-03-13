@@ -9,4 +9,46 @@
 
 .deleteButton:hover {
   color: #F44336;
+}
+
+/* Base styles for mobile first approach */
+.container {
+  padding: 1rem;
+  width: 100%;
+}
+
+.noteGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;  /* Single column on mobile */
+}
+
+/* Tablet breakpoint */
+@media (min-width: 768px) {
+  .noteGrid {
+    grid-template-columns: repeat(2, 1fr);  /* 2 columns */
+  }
+}
+
+/* Desktop breakpoint */
+@media (min-width: 1024px) {
+  .noteGrid {
+    grid-template-columns: repeat(3, 1fr);  /* 3 columns */
+  }
+}
+
+/* Larger screens */
+@media (min-width: 1440px) {
+  .noteGrid {
+    grid-template-columns: repeat(4, 1fr);  /* 4 columns */
+  }
+}
+
+/* Responsive text */
+.noteTitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+.noteContent {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
 } 

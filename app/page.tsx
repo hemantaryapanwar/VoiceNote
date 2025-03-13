@@ -666,67 +666,49 @@ export default function Home() {
                 Recent Recordings
               </h2>
               
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                {notes.slice(0, 5).map(note => (
-                  <div key={note.id} style={{ 
-                    backgroundColor: darkMode ? '#111827' : '#f3f4f6', 
-                    borderRadius: '0.75rem', 
-                    padding: '1rem',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between'
-                  }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                      <button 
-                        onClick={() => handlePlayNote(note.id)}
-                        style={{ 
-                          backgroundColor: playingNoteId === note.id ? '#F44336' : '#FFA500', 
-                          color: 'black', 
-                          width: '2.5rem', 
-                          height: '2.5rem', 
-                          borderRadius: '50%', 
-                          display: 'flex', 
-                          alignItems: 'center', 
-                          justifyContent: 'center',
-                          border: 'none',
-                          cursor: 'pointer',
-                          transition: 'background-color 0.2s'
-                        }}
-                      >
-                        <FaPlay />
-                      </button>
-                      <div>
-                        <h3 style={{ color: 'white', fontWeight: 'bold', marginBottom: '0.25rem' }}>
-                          {note.text.length > 30 ? `${note.text.substring(0, 30)}...` : note.text}
-                        </h3>
-                        <p style={{ color: '#AAAAAA', fontSize: '0.875rem' }}>
+              <div className={styles.container}>
+                <div className={styles.noteGrid}>
+                  {notes.slice(0, 5).map(note => (
+                    <div key={note.id} className={styles.noteItem}>
+                      <div className={styles.noteContent}>
+                        <div className={styles.noteHeader}>
+                          <button 
+                            onClick={() => handlePlayNote(note.id)}
+                            className={playingNoteId === note.id ? styles.activeButton : styles.button}
+                          >
+                            <FaPlay />
+                          </button>
+                          <h3 className={styles.noteTitle}>
+                            {note.text.length > 30 ? `${note.text.substring(0, 30)}...` : note.text}
+                          </h3>
+                        </div>
+                        <p className={styles.noteText}>
                           {formatDuration(note.text)} • {formatDate(new Date(note.createdAt))}
                         </p>
                       </div>
+                      <div className={styles.noteActions}>
+                        <button 
+                          onClick={() => handleEditNote(note)}
+                          className={styles.actionButton + ' ' + styles.editButton}
+                          title="Edit Note"
+                        >
+                          <FaEdit />
+                        </button>
+                        <button 
+                          onClick={() => {
+                            if (window.confirm('Are you sure you want to delete this note?')) {
+                              handleDeleteNote(note.id);
+                            }
+                          }}
+                          className={styles.actionButton + ' ' + styles.deleteButton}
+                          title="Delete Note"
+                        >
+                          <FaTrash />
+                        </button>
+                      </div>
                     </div>
-                    <div style={{ display: 'flex', gap: '0.75rem' }}>
-                      <button 
-                        onClick={() => handleEditNote(note)}
-                        className={styles.actionButton + ' ' + styles.editButton}
-                        title="Edit Note"
-                      >
-                        <FaEdit />
-                      </button>
-                      <button 
-                        onClick={() => {
-                          if (window.confirm('Are you sure you want to delete this note?')) {
-                            handleDeleteNote(note.id);
-                          }
-                        }}
-                        className={styles.actionButton + ' ' + styles.deleteButton}
-                        title="Delete Note"
-                      >
-                        <FaTrash />
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </section>
           )}

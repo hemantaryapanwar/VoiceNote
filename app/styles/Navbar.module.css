@@ -1,0 +1,91 @@
+.navbar {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navLinks {
+  display: flex;
+  gap: 2rem;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.navLinks a:hover {
+  color: #007bff;
+}
+
+/* Mobile menu button */
+.menuButton {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.menuButton span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.3s;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .menuButton {
+    display: flex;
+  }
+
+  .navLinks {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .navLinks.active {
+    display: flex;
+  }
+
+  .navLinks a {
+    padding: 0.5rem 0;
+  }
+}
+
+/* Animation for menu button when active */
+.menuButton.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menuButton 
